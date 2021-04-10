@@ -5,21 +5,21 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5">
 	<!-- Framework Css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/lib/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/lib/bootstrap.min.css">
 	<!-- Font Awesome / Icon Fonts -->
-	<link rel="stylesheet" type="text/css" href="assets/css/lib/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/lib/font-awesome.min.css">
 	<!-- Owl Carousel / Carousel- Slider -->
-	<link rel="stylesheet" type="text/css" href="assets/css/lib/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/lib/owl.carousel.min.css">
 	<!-- Video YouTube -->
-	<link rel="stylesheet" type="text/css" href="assets/css/lib/lazyYT.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/lib/lazyYT.min.css">
 	<!-- Carousel- Slider / Vertical -->
-	<link rel="stylesheet" type="text/css" href="assets/css/lib/slick.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/lib/slick.css">
 	<!-- Style Theme -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<!-- Responsive Theme -->
-	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
 </head>
-<body>
+<body class="@yield('body_class')">
 <div class="wrapper">
 	<!--===================== Header ========================-->
 	<header>
@@ -146,7 +146,7 @@
 					</button>
 				</div>
 				<div class="col-md-2 col-sm-3 col-xs-3 text-center">
-					<div class="logo"><a href="index.html"><img src="assets/images/logo.png" alt="logo"></a></div>
+					<div class="logo"><a href="/"><img src="/assets/images/logo.png" alt="logo"></a></div>
 				</div>
 				<div class="col-md-5 col-sm-5 col-xs-5 text-right">
 					<ul class="info-header">
@@ -184,7 +184,7 @@
 			</div>
 			<form class="search">
 				<input type="text" placeholder="Search...">
-				<span class="close"><img src="assets/images/close2.png" alt="close"></span>
+				<span class="close"><img src="/assets/images/close2.png" alt="close"></span>
 			</form>
 		</div>
 	</header>
@@ -248,17 +248,17 @@
 	</footer>
 <!--================= End of Footer =====================-->
 </div><!--wrapper-->
-<script src="assets/js/lib/jquery.js"></script>
-<script src="assets/js/lib/bootstrap.min.js"></script>
-<script src="assets/js/lib/owl.carousel.min.js"></script>
-<script src="assets/js/lib/jquery-ui.min.js"></script>
-<script src="assets/js/lib/TweenMax.min.js"></script>
-<script src="assets/js/lib/lazyYT.js"></script>
-<script src="assets/js/lib/masonry.pkgd.min.js"></script>
-<script src="assets/js/lib/jquery.filterizr.min.js"></script>
-<script src="assets/js/lib/slick.min.js"></script>
-<script src="assets/js/lib/jquery.counterup.min.js"></script>
-<script src="assets/js/lib/waypoints.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="/assets/js/lib/jquery.js"></script>
+<script src="/assets/js/lib/bootstrap.min.js"></script>
+<script src="/assets/js/lib/owl.carousel.min.js"></script>
+<script src="/assets/js/lib/jquery-ui.min.js"></script>
+<script src="/assets/js/lib/TweenMax.min.js"></script>
+<script src="/assets/js/lib/lazyYT.js"></script>
+<script src="/assets/js/lib/masonry.pkgd.min.js"></script>
+<script src="/assets/js/lib/jquery.filterizr.min.js"></script>
+<script src="/assets/js/lib/slick.min.js"></script>
+<script src="/assets/js/lib/jquery.counterup.min.js"></script>
+<script src="/assets/js/lib/waypoints.min.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>

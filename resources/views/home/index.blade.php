@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Home')
+@section('title', 'CINAGRO - Органический магазин продуктов питания')
 	
 @section('content')
 	
@@ -7,14 +7,14 @@
 	<!--===================== Base-Slider ========================-->
 	<div class="base-slider owl-carousel owl-theme">
 		<div class="item">
-			<img src="http://via.placeholder.com/1920x760" alt="slider">
+			<img src="/assets/images/facebook.jpg" alt="slider">
 			<div class="text-slider">
 				<h2>Nature has always<br>cared for us!</h2>
 				<a href="#" class="custom-btn text-center yellow">top tips</a>
 			</div><!--text-slider-->
 		</div><!--item-->
 		<div class="item slide-two">
-			<img src="http://via.placeholder.com/1920x760" alt="slider">
+			<img src="/assets/images/facebook.jpg" alt="slider">
 			<div class="text-slider">
 				<h2>Organic pancakes<br>homestyle</h2>
 				<span class="price">12.99$</span>
@@ -22,7 +22,7 @@
 			</div><!--text-slider-->
 		</div><!--item-->
 		<div class="item slide-three">
-			<img src="http://via.placeholder.com/1920x760" alt="slider">
+			<img src="/assets/images/facebook.jpg" alt="slider">
 			<div class="text-slider last">
 				<h2>One day sale!<br>large avocados<span class="text-pink">for $5</span></h2>
 				<div id="countdown">
@@ -42,19 +42,19 @@
 			<ul>
 				<li>
 					<a href="shop.html">
-						<img src="http://via.placeholder.com/115x150" alt="groceries">
+					<img src="/assets/images/tractor.png" width="150">
 						<span>Natural</span>
 					</a>
 				</li>
 				<li class="center">
 					<a href="shop.html">
-						<img src="http://via.placeholder.com/115x150" alt="pineapple">
+						<img src="/assets/images/spinach.png" width="150">
 						<span>organic</span>
 					</a>
 				</li>
 				<li>
 					<a href="shop.html">
-						<img src="http://via.placeholder.com/115x150" alt="corn">
+					<img src="/assets/images/apple.png" width="150">
 						<span>health</span>
 					</a>
 				</li>
@@ -158,139 +158,41 @@
 				<p>Be Healty Organic Food</p>
 			</div>
 			<div class="row">
+			@foreach($products as $product)
+			@php 
+				$image = '';
+				if(count($product->images) > 0){
+					$image = $product->images[0]['img'];
+				} else{
+					$image = 'missingimage.png';
+				}
+			@endphp
 				<div class="col-md-3 col-sm-6 col-xs-12">
 					<div class="product">
 						<div class="images">
-							<a href="single-product.html"><img src="http://via.placeholder.com/160x230" alt="product5"></a>
+							<a href="{{route('showProduct', ['category', $product->id])}}"><img src="/assets/images/{{$image}}" alt="{{$product->title}}"></a>
 							<div class="button-group">
 								<a href="cart.html" class="custom-btn pink"><i class="fa fa-shopping-bag"></i></a>
 								<a href="#" class="custom-btn pink"><i class="fa fa-search"></i></a>
 							</div><!--button-group-->
 						</div><!--images-->
 						<div class="info-product">
-							<a href="single-product.html" class="title">ORS - Olive Oil</a>
+							<a href="{{route('showProduct', ['category', $product->id])}}" class="title">{{$product->title}}</a>
 							<span class="price">
-								<del>$9.99</del>
-								<ins>$6.99</ins>
+								<ins>${{$product->price}}</ins>
 							</span>
 						</div><!--info-product-->
 					</div><!--product-->
 				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="product">
-						<div class="images">
-							<a href="single-product.html"><img src="http://via.placeholder.com/160x230" alt="product5"></a>
-							<div class="button-group">
-								<a href="cart.html" class="custom-btn pink"><i class="fa fa-shopping-bag"></i></a>
-								<a href="#" class="custom-btn pink"><i class="fa fa-search"></i></a>
-							</div><!--button-group-->
-						</div><!--images-->
-						<div class="info-product">
-							<a href="single-product.html" class="title">Organic - Agave Five</a>
-							<span class="price">$9.99</span>
-						</div><!--info-product-->
-					</div><!--product-->
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="product">
-						<div class="images">
-							<a href="single-product.html"><img src="http://via.placeholder.com/160x230" alt="product5"></a>
-							<div class="button-group">
-								<a href="cart.html" class="custom-btn pink"><i class="fa fa-shopping-bag"></i></a>
-								<a href="#" class="custom-btn pink"><i class="fa fa-search"></i></a>
-							</div><!--button-group-->
-						</div><!--images-->
-						<div class="info-product">
-							<a href="single-product.html" class="title">Organic Girl - Romanie</a>
-							<span class="price">$4.79</span>
-						</div><!--info-product-->
-					</div><!--product-->
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="product">
-						<div class="images">
-							<a href="single-product.html"><img src="http://via.placeholder.com/160x230" alt="product5"></a>
-							<div class="button-group">
-								<a href="cart.html" class="custom-btn pink"><i class="fa fa-shopping-bag"></i></a>
-								<a href="#" class="custom-btn pink"><i class="fa fa-search"></i></a>
-							</div><!--button-group-->
-						</div><!--images-->
-						<div class="info-product">
-							<a href="single-product.html" class="title">Beach Nut - Coldpure</a>
-							<span class="price">$6.49</span>
-						</div><!--info-product-->
-					</div><!--product-->
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="product">
-						<div class="images">
-							<a href="single-product.html"><img src="http://via.placeholder.com/160x230" alt="product5"></a>
-							<div class="button-group">
-								<a href="cart.html" class="custom-btn pink"><i class="fa fa-shopping-bag"></i></a>
-								<a href="#" class="custom-btn pink"><i class="fa fa-search"></i></a>
-							</div><!--button-group-->
-						</div><!--images-->
-						<div class="info-product">
-							<a href="single-product.html" class="title">Beech Nut - Just Pumpkin</a>
-							<span class="price">$9.69</span>
-						</div><!--info-product-->
-					</div><!--product-->
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="product">
-						<div class="images">
-							<a href="single-product.html"><img src="http://via.placeholder.com/160x230" alt="product5"></a>
-							<div class="button-group">
-								<a href="cart.html" class="custom-btn pink"><i class="fa fa-shopping-bag"></i></a>
-								<a href="#" class="custom-btn pink"><i class="fa fa-search"></i></a>
-							</div><!--button-group-->
-						</div><!--images-->
-						<div class="info-product">
-							<a href="single-product.html" class="title">Detox Zero</a>
-							<span class="price">$16.99</span>
-						</div><!--info-product-->
-					</div><!--product-->
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="product">
-						<div class="images">
-							<a href="single-product.html"><img src="http://via.placeholder.com/160x230" alt="product5"></a>
-							<div class="button-group">
-								<a href="cart.html" class="custom-btn pink"><i class="fa fa-shopping-bag"></i></a>
-								<a href="#" class="custom-btn pink"><i class="fa fa-search"></i></a>
-							</div><!--button-group-->
-						</div><!--images-->
-						<div class="info-product">
-							<a href="single-product.html" class="title">Mooala Original</a>
-							<span class="price">$10.99</span>
-						</div><!--info-product-->
-					</div><!--product-->
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="product">
-						<div class="images">
-							<a href="single-product.html"><img src="http://via.placeholder.com/160x230" alt="product5"></a>
-							<div class="button-group">
-								<a href="cart.html" class="custom-btn pink"><i class="fa fa-shopping-bag"></i></a>
-								<a href="#" class="custom-btn pink"><i class="fa fa-search"></i></a>
-							</div><!--button-group-->
-						</div><!--images-->
-						<div class="info-product">
-							<a href="single-product.html" class="title">Low Cow - Lite Ice Cream</a>
-							<span class="price">$9.99</span>
-						</div><!--info-product-->
-					</div><!--product-->
-				</div>
-			</div>
+				@endforeach				
+			</div>			
 			<div class="text-center"><a href="shop.html" class="custom-btn text-center green">VIEW THE STORE</a></div>
 		</div><!--grid-product-->
 		<div class="banner-img">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="banner-inside">
-						<img src="http://via.placeholder.com/800x330" alt="banner">
+						<img src="/assets/images/image.jpg" alt="banner">
 						<div class="inside text-right">
 							<h2 class="text-black">gift Certificate</h2>
 							<p>Give the perfect gift every time</p>
@@ -300,7 +202,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="banner-inside">
-						<img src="http://via.placeholder.com/800x330" alt="banner">
+						<img src="/assets/images/image.jpg" alt="banner">
 						<div class="inside text-right">
 							<h2 class="text-black">Fresh Fruits</h2>
 							<p>100% freshness guarantee </p>
