@@ -51,95 +51,17 @@
 			<div class="row">
 				<div class="col-md-5 col-sm-4 col-xs-4">
 					<ul class="menu">
-						<li><a href="index.html">home</a></li>
-						<li class="mega-menu-top">
-							<a href="#">Features</a>
-							<div class="mega-menu columns-4">
-								<ul>
-									<li class="first">Fruit &amp; Veg</li>
-									<li><a href="#">Set Boxes</a></li>
-									<li><a href="#">Fruit</a></li>
-									<li><a href="#">Veg</a></li>
-									<li><a href="#">Salad</a></li>
-									<li><a href="#">Herbs</a></li>
-									<li><a href="#">Organic</a></li>
-									<li><a href="#">Juice &amp; Smoothies</a></li>
-									<li><a href="#">Nuts &amp; Dried Fruit</a></li>
-									<li><a href="#">Gourmet Pantry</a></li>
-								</ul>
-								<ul>
-									<li class="first">Dairy</li>
-									<li><a href="#">Milk</a></li>
-									<li><a href="#">Cheese</a></li>
-									<li><a href="#">Specialty Cheese</a></li>
-									<li><a href="#">Yoghurt</a></li>
-									<li><a href="#">Butter</a></li>
-									<li><a href="#">Cream</a></li>
-									<li><a href="#">Dips &amp; Antipasto</a></li>
-								</ul>
-								<ul>
-									<li class="first">Frozen</li>
-									<li><a href="#">Frozen Vegetables</a></li>
-									<li><a href="#">Frozen Desserts &amp; Bakery</a></li>
-									<li><a href="#">Frozen Seafood</a></li>
-									<li><a href="#">Frozen Breakfast Food</a></li>
-									<li><a href="#">Frozen Fruit</a></li>
-									<li><a href="#">Ice</a></li>
-									<li><a href="#">Frozen Appetizers</a></li>
-								</ul>
-								<ul>
-									<li class="first">Superfoods</li>
-									<li><a href="#">Ayurverdic</a></li>
-									<li><a href="#">South American</a></li>
-									<li><a href="#">Green &amp; Fungi</a></li>
-									<li><a href="#">Cacao &amp; Coconut</a></li>
-									<li><a href="#">Fruit &amp; Hemp</a></li>
-									<li><a href="#">Superfood Teas</a></li>
-									<li><a href="#">Superfood Snacks</a></li>
-									<li><a href="#">Superfood Juices</a></li>
-								</ul>
-							</div><!--mega-menu-->
-						</li><!--children-->
+						<li><a href="/">home</a></li>
 						<li class="children">
-							<a href="about.html">About</a>
+							<a href="">Categories</a>
 							<ul class="sub-menu">
-								<li><a href="#">Why Choose Cinagro?</a></li>
-								<li><a href="#">Organic Leadership Awards</a></li>
-								<li><a href="#">Verification &amp; Certification</a></li>
-								<li><a href="#">Organic Standards</a></li>
+                                @foreach($categories as $category)
+                                    <li><a href="{{route('showCategory', $product->$category['alias'])}}">{{$category->title}}</a></li>
+                                @endforeach
 							</ul><!--sub-menu-->
 						</li>
 						<li><a href="blog.html">Recipes</a></li>
-						<li><a href="journal-blog.html">Journal</a></li>
-						<li class="mega-menu-top">
-							<a href="#">Store</a>
-							<div class="mega-menu columns-3">
-								<ul>
-									<li class="first">Shop Page</li>
-									<li><a href="shop.html">Shop</a></li>
-									<li><a href="shop-two.html">Shop v2</a></li>
-									<li><a href="shop-column-three.html">Shop Column 3</a></li>
-									<li><a href="shop-column-three-v2.html">Shop Column 3 v2</a></li>
-									<li><a href="shop-column-three-v3.html">Shop Column 3 v3</a></li>
-								</ul>
-								<ul>
-									<li class="first">Shop Page</li>
-									<li><a href="shop-with-sidebar.html">Shop With Sidebar</a></li>
-									<li><a href="shop-with-sidebar-v2.html">Shop With Sidebar v2</a></li>
-									<li><a href="shop-column-six.html">Shop Column Six</a></li>
-									<li><a href="shop-full-width.html">Shop Full Width</a></li>
-									<li><a href="shop-categories.html">Shop Categories</a></li>
-								</ul>
-								<ul>
-									<li class="first">Single Product</li>
-									<li><a href="single-product-limited.html">Single Product Limited</a></li>
-									<li><a href="single-product-sale.html">Single Product Sale</a></li>
-									<li><a href="single-product-stock.html">Single Product Stock</a></li>
-									<li><a href="single-product-v2.html">Single Product v2</a></li>
-									<li><a href="single-product-video.html">Single Product Video</a></li>
-								</ul>
-							</div><!--mega-menu-->
-						</li>
+
 					</ul><!--menu-->
 					<button type="button" class="menu-button">
 						<span></span>

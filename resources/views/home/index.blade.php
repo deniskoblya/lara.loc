@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('title', 'CINAGRO - Органический магазин продуктов питания')
-	
+
 @section('content')
-	
-	
+
+
 	<!--===================== Base-Slider ========================-->
 	<div class="base-slider owl-carousel owl-theme">
 		<div class="item">
@@ -34,7 +34,7 @@
 			</div><!--text-slider-->
 		</div><!--item-->
 	</div>
-	
+
 	<!--================== End of Base-Slider ====================-->
 	<!--=================== Category Product =====================-->
 	<div class="container">
@@ -159,7 +159,7 @@
 			</div>
 			<div class="row">
 			@foreach($products as $product)
-			@php 
+			@php
 				$image = '';
 				if(count($product->images) > 0){
 					$image = $product->images[0]['img'];
@@ -177,15 +177,18 @@
 							</div><!--button-group-->
 						</div><!--images-->
 						<div class="info-product">
-							<a href="{{route('showProduct', ['category', $product->id])}}" class="title">{{$product->title}}</a>
+							<a href="{{route('showProduct', ['category', $product->id])}}" class="title">{{$product->category['title']}} - {{$product->title}}</a>
 							<span class="price">
+							@if ($product->old_price != null)
+							<del>${{$product->old_price}}</del>
+							@endif
 								<ins>${{$product->price}}</ins>
 							</span>
 						</div><!--info-product-->
 					</div><!--product-->
 				</div>
-				@endforeach				
-			</div>			
+				@endforeach
+			</div>
 			<div class="text-center"><a href="shop.html" class="custom-btn text-center green">VIEW THE STORE</a></div>
 		</div><!--grid-product-->
 		<div class="banner-img">
@@ -424,5 +427,5 @@
 	</div>
 	<!--====================== Posts ==========================-->
 
-	
+
 @endsection

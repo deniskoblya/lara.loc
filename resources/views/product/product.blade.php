@@ -19,23 +19,47 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
+
+            
+			@php 
+				$image = '';    
+				if(count($item->images) > 0){
+					$image = $item->images[0]['img'];
+				} else{
+					$image = 'missingimage.png';
+				}
+			@endphp
+
+
+
 				<!--================= Single Product Slider  ====================-->
 				<div class="single-product-slider">
 					<div class="product-slider-shop owl-carousel owl-theme">
-						<div class="item"><img src="http://via.placeholder.com/570x570" alt="single-product"></div>
-						<div class="item"><img src="http://via.placeholder.com/570x570" alt="single-product"></div>
-						<div class="item"><img src="http://via.placeholder.com/570x570" alt="single-product"></div>
-						<div class="item"><img src="http://via.placeholder.com/570x570" alt="single-product"></div>
-						<div class="item"><img src="http://via.placeholder.com/570x570" alt="single-product"></div>
-						<div class="item"><img src="http://via.placeholder.com/570x570" alt="single-product"></div>
+                    @if ($image == 'missingimage.png')
+						<div class="item"><img src="/assets/images/missingimage.png" alt="{{$item->title}}"></div>
+                    @else
+                    @foreach($item->images as $img)
+                     @if($loop->first)
+                     <div class="item active"><img src="/assets/images/{{$img['img']}}" alt="{{$item->title}}"></div> 
+                     @else
+                     <div class="item"><img src="/assets/images/{{$img['img']}}" alt="{{$item->title}}"></div>
+                     @endif
+                    @endforeach    
+					@endif	
 					</div>
 					<div class="thumbnail owl-carousel owl-theme">
-						<div class="item"><img src="http://via.placeholder.com/133x133" alt="product"></div>
-						<div class="item"><img src="http://via.placeholder.com/133x133" alt="product"></div>
-						<div class="item"><img src="http://via.placeholder.com/133x133" alt="product"></div>
-						<div class="item"><img src="http://via.placeholder.com/133x133" alt="product"></div>
-						<div class="item"><img src="http://via.placeholder.com/133x133" alt="product"></div>
-						<div class="item"><img src="http://via.placeholder.com/133x133" alt="product"></div>
+                    @if ($image == 'missingimage.png')
+						<div class="item"><img src="/assets/images/missingimage.png" alt="{{$item->title}}"></div>
+                    @else
+                    @foreach($item->images as $img)
+                     @if($loop->first)
+                     <div class="item active"><img src="/assets/images/{{$img['img']}}" alt="{{$item->title}}"></div> 
+                     @else
+                     <div class="item"><img src="/assets/images/{{$img['img']}}" alt="{{$item->title}}"></div>
+                     @endif
+                    @endforeach    
+					@endif
+						
 					</div>
 					<div class="zoom" data-toggle="modal" data-target="#zoom-modal">
 						<img src="/assets/images/zoom.png" alt="zoom">
@@ -51,8 +75,9 @@
 							<div class="modal-body">
 								<div id="carousel" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
+                                    
 										<div class="item active">
-											<img src="http://via.placeholder.com/570x570" alt="single">
+                                        <img src="/assets/images/{{$image}}" alt="{{$item->title}}">
 										</div><!--item-->
 										<div class="item">
 											<img src="http://via.placeholder.com/570x570" alt="single">
@@ -119,7 +144,19 @@
 			<div class="col-md-6">
 				<!--================= Inside Single  ====================-->
 				<div class="inside-single">
-					<div class="price">$9.99</div>
+                <span class="price">
+							@if ($item->old_price != null)
+							<del>${{$item->old_price}}</del>
+							@endif
+								<ins>${{$item->price}}</ins>
+							</span>
+                            <br>
+                            @if ($item->in_stock != null)
+							<b>В наличии</b>
+                            @else 
+                            <b>Нет в наличии</b>
+							@endif
+					
 					<div class="star">
 						<span>
 							<i class="fa fa-star"></i>
@@ -131,7 +168,7 @@
 						<a href="#">(4 customer reviews)</a>
 					</div><!--star-->
 					<div class="description">
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+                    <p>{{$item->description_small}}</p>
 					</div><!--description-->
 					<div class="add-to-cart">
 						<div class="quantity">
@@ -166,21 +203,13 @@
 				</ul>
 				<div class="tab-content">
 					<div class="tab-pane fade in active" id="description">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. </p>
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.</p>
-						<ul class="list">
-							<li class="first">Benefits of Essential Oils:</li>
-							<li><i class="fa fa-circle"></i>Improve immunity and speed illness recovery</li>
-							<li><i class="fa fa-circle"></i>Deal with infection (under the care of a professional)</li>
-							<li><i class="fa fa-circle"></i>Make homemade cleaning or beauty products</li>
-							<li><i class="fa fa-circle"></i>In recipes like homemade bug spray to avoid outdoor pests naturally</li>
-						</ul>
+                    <p>{{$item->description_full}}</p>
 					</div><!--tab-pane-->
 					<div class="tab-pane fade" id="additional-info">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. </p>
+                    <p>{{$item->additional_info}}</p>
 					</div><!--tab-pane-->
 					<div class="tab-pane fade" id="shipping">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. </p>
+                    <p>{{$item->shipping}}</p>
 					</div><!--tab-pane-->
 					<div class="tab-pane fade" id="reviews">
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. </p>
