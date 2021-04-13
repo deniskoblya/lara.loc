@@ -56,7 +56,7 @@
 							<a href="">Categories</a>
 							<ul class="sub-menu">
                                 @foreach($categories as $category)
-                                    <li><a href="{{route('showCategory', $product->$category['alias'])}}">{{$category->title}}</a></li>
+                                    <li><a href="{{route('showCategory', $category['alias'])}}">{{$category->title}}</a></li>
                                 @endforeach
 							</ul><!--sub-menu-->
 						</li>
